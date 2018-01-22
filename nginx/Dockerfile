@@ -13,10 +13,10 @@ RUN set -x && \
     # Extract tarball and install it
     tar xzf phpMyAdmin.tar.gz && \
     rm -f phpMyAdmin.tar.gz && \
-    mv phpMyAdmin-$VERSION-all-languages /usr/share/phpmyadmin && \
+    mv phpMyAdmin-$PHPYMYADMIN_VERSION-all-languages /usr/share/phpmyadmin && \
     # Pre-configure phpMyAdmin to use /etc/phpmyadmin
     cd /usr/share/phpmyadmin && \
-    rm -rf setup/ examples/ test/ po/ composer.json RELEASE-DATE-$VERSION && \
+    rm -rf setup/ examples/ test/ po/ composer.json RELEASE-DATE-$PHPYMYADMIN_VERSION && \
     sed -i "s@define('CONFIG_DIR'.*@define('CONFIG_DIR', '/etc/phpmyadmin/');@" libraries/vendor_config.php && \
     chown -R root:nobody /usr/share/phpmyadmin && \
     find /usr/share/phpmyadmin -type d -exec chmod 750 {} \; && \
